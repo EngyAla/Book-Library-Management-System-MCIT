@@ -125,3 +125,4 @@ C:\Users\Pc\Desktop\Book Library Management System\obj\Debug\net8.0\refint\BookV
 C:\Users\Pc\Desktop\Book Library Management System\obj\Debug\net8.0\BookVerse.pdb
 C:\Users\Pc\Desktop\Book Library Management System\obj\Debug\net8.0\BookVerse.genruntimeconfig.cache
 C:\Users\Pc\Desktop\Book Library Management System\obj\Debug\net8.0\ref\BookVerse.dll
+C:\Users\Pc\Desktop\Book Library Management System\obj\Debug\net8.0\BookVerse.sourcelink.json
