@@ -1,0 +1,72 @@
+@model BookVerse.Models.Book
+
+@{
+    ViewData["Title"] = "Delete Book - " + Model.Title;
+}
+
+<div class="max-w-3xl mx-auto animate-fade-in" style="max-width: 600px;">
+    <!-- Navigation Link -->
+    <div class="mb-4">
+        <a asp-action="Index" class="text-decoration-none d-inline-flex align-items-center gap-1 text-slate-600 hover-text-primary">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Library</span>
+        </a>
+    </div>
+
+    <!-- Delete Confirmation Card -->
+    <div class="card border-0 shadow-lg overflow-hidden">
+        <!-- Danger Banner Header -->
+        <div class="bg-danger text-white p-4 d-flex align-items-center gap-3">
+            <i class="bi bi-exclamation-triangle fs-2"></i>
+            <div>
+                <h2 class="h5 mb-1 text-white fw-bold">Delete Book Confirmation</h2>
+                <p class="text-white-50 mb-0 text-sm">This action is permanent and cannot be undone.</p>
+            </div>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <p class="text-slate-700 mb-4 fs-5 text-center">
+                Are you sure you want to remove <strong class="text-slate-900">"@Model.Title"</strong> from your library?
+            </p>
+
+            <!-- Book summary panel -->
+            <div class="bg-light rounded-3 p-4 mb-4 border border-slate-100">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="text-xs text-slate-500 uppercase fw-semibold tracking-wider">Title</div>
+                        <div class="fw-bold text-slate-800">@Model.Title</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-xs text-slate-500 uppercase fw-semibold tracking-wider">Author</div>
+                        <div class="fw-bold text-slate-800">@Model.Author</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-xs text-slate-500 uppercase fw-semibold tracking-wider">Category</div>
+                        <div>
+                            <span class="badge bg-slate-200 text-slate-800">@Model.Category</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-xs text-slate-500 uppercase fw-semibold tracking-wider">Price</div>
+                        <div class="fw-bold text-slate-800">@Model.Price.ToString("C")</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action form -->
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-3 justify-content-center border-top border-slate-100 pt-4">
+                    <button type="submit" class="btn btn-danger d-flex align-items-center gap-2 px-4 py-2.5">
+                        <i class="bi bi-trash"></i>
+                        <span>Delete Permanently</span>
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary d-flex align-items-center gap-2 px-4 py-2.5">
+                        <i class="bi bi-x-circle"></i>
+                        <span>Cancel</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

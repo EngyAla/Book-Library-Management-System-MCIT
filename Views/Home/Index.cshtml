@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "Welcome to BookVerse";
+}
+
+<div class="animate-fade-in">
+    <!-- Hero Section -->
+    <div class="row align-items-center py-5 g-5">
+        <div class="col-12 col-lg-6">
+            <span class="badge bg-primary text-uppercase px-3 py-2 fw-semibold mb-3" style="font-size: 0.8rem; letter-spacing: 0.05em;">
+                Personal Library Manager
+            </span>
+            <h1 class="display-3 fw-extrabold text-slate-900 mb-3 tracking-tight">
+                Your entire library in <span class="text-primary">one place</span>.
+            </h1>
+            <p class="fs-5 text-slate-500 mb-4.5 lh-lg">
+                Welcome to BookVerse, a production-quality library management system built with ASP.NET Core MVC 8 and Entity Framework Core. Manage your book catalog, search and filter through records, and keep track of your reading list.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a asp-controller="Books" asp-action="Index" class="btn btn-primary btn-lg d-flex align-items-center gap-2 px-4.5 py-3 shadow-md">
+                    <i class="bi bi-collection"></i>
+                    <span>Explore Library</span>
+                </a>
+                <a asp-controller="Books" asp-action="Create" class="btn btn-secondary btn-lg d-flex align-items-center gap-2 px-4.5 py-3">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add New Book</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 d-none d-lg-block text-center">
+            <div class="position-relative d-inline-block">
+                <div class="bg-primary rounded-circle position-absolute opacity-10 blur-3xl" style="width: 400px; height: 400px; top: -50px; left: -50px; filter: blur(170px); z-index: -1;"></div>
+                <i class="bi bi-book-half text-primary" style="font-size: 16rem; line-height: 1;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="row g-4 mt-5">
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <div class="card-body d-flex flex-column gap-3 p-0">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                        <i class="bi bi-shield-check fs-4"></i>
+                    </div>
+                    <h3 class="h5 mb-0">Model Validation</h3>
+                    <p class="text-slate-500 mb-0">
+                        Strongly typed validation messages using data annotations protect data integrity on both the Create and Edit forms.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <div class="card-body d-flex flex-column gap-3 p-0">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                        <i class="bi bi-search fs-4"></i>
+                    </div>
+                    <h3 class="h5 mb-0">Instant Search</h3>
+                    <p class="text-slate-500 mb-0">
+                        Find books quickly using our case-insensitive search bar that filters on Title, Author, or Category instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <div class="card-body d-flex flex-column gap-3 p-0">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                        <i class="bi bi-database-fill-gear fs-4"></i>
+                    </div>
+                    <h3 class="h5 mb-0">Entity Framework Core</h3>
+                    <p class="text-slate-500 mb-0">
+                        Demonstrates production-ready EF Core code using standard DbContext, sequential migrations, and database seeding.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+@model BookVerse.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details - " + Model.Title;
+}
+
+<div class="max-w-3xl mx-auto animate-fade-in" style="max-width: 800px;">
+    <!-- Navigation Back Link -->
+    <div class="mb-4">
+        <a asp-action="Index" class="text-decoration-none d-inline-flex align-items-center gap-1 text-slate-600 hover-text-primary">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Library</span>
+        </a>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card border-0 shadow-lg overflow-hidden">
+        <!-- Header Banner style -->
+        <div class="bg-slate-900 text-white p-4 p-md-5 d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-primary text-uppercase px-2.5 py-1.5 fw-semibold" style="font-size: 0.75rem; letter-spacing: 0.05em;">
+                    @Model.Category
+                </span>
+            </div>
+            <div>
+                <h1 class="h2 text-white mb-2 fw-extrabold">@Model.Title</h1>
+                <p class="fs-5 text-slate-400 mb-0">by <span class="text-white fw-medium">@Model.Author</span></p>
+            </div>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <h3 class="h5 border-bottom border-slate-100 pb-3 mb-4"><i class="bi bi-info-circle-fill text-primary me-2"></i>Book Information</h3>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-currency-dollar fs-3 text-slate-400 mt-0.5"></i>
+                        <div>
+                            <div class="text-slate-500 text-sm fw-medium">Price</div>
+                            <div class="fs-5 fw-bold text-slate-900">@Model.Price.ToString("C")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-translate fs-3 text-slate-400 mt-0.5"></i>
+                        <div>
+                            <div class="text-slate-500 text-sm fw-medium">Language</div>
+                            <div class="fs-5 fw-bold text-slate-900">@(string.IsNullOrEmpty(Model.Language) ? "N/A" : Model.Language)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-file-earmark-text fs-3 text-slate-400 mt-0.5"></i>
+                        <div>
+                            <div class="text-slate-500 text-sm fw-medium">Pages</div>
+                            <div class="fs-5 fw-bold text-slate-900">@Model.Pages <span class="fs-6 text-slate-500 fw-normal">pages</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-calendar-event fs-3 text-slate-400 mt-0.5"></i>
+                        <div>
+                            <div class="text-slate-500 text-sm fw-medium">Publish Date</div>
+                            <div class="fs-6 fw-bold text-slate-900">@Model.PublishDate.ToString("MMMM dd, yyyy")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-clock-history fs-3 text-slate-400 mt-0.5"></i>
+                        <div>
+                            <div class="text-slate-500 text-sm fw-medium">Added to Library</div>
+                            <div class="fs-6 fw-bold text-slate-900" title="@Model.CreatedAt.ToLocalTime()">@Model.CreatedAt.ToLocalTime().ToString("MMM dd, yyyy HH:mm")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="mb-5">
+                <h3 class="h5 border-bottom border-slate-100 pb-3 mb-3"><i class="bi bi-card-text text-primary me-2"></i>Description</h3>
+                @if (string.IsNullOrEmpty(Model.Description))
+                {
+                    <p class="text-muted italic mb-0">No description has been provided for this book.</p>
+                }
+                else
+                {
+                    <p class="text-slate-700 lh-lg mb-0" style="white-space: pre-line;">@Model.Description</p>
+                }
+            </div>
+
+            <!-- Action buttons -->
+            <div class="d-flex gap-3 border-top border-slate-100 pt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2.5">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Edit Book Details</span>
+                </a>
+                <a asp-action="Index" class="btn btn-secondary d-flex align-items-center gap-2 px-4 py-2.5">
+                    <i class="bi bi-arrow-left"></i>
+                    <span>Back to List</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
